@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+:root {
+    --primary-color: #a60cad;
+}
+
+
+.primaryTextColor {
+    color: var(--primary-color);
+}
