@@ -10,7 +10,7 @@
         <Timeline :activities="persoonlijkeOntwikkeling" />
 
 
-        <h1 class="font-bold pb-10 pt-10">Porjectweek</h1>
+        <h1 class="font-bold pb-10 pt-10">Projectweek</h1>
         <Timeline :activities="projectweek" />
 
         <h1 class="font-bold pb-10 pt-10">Hackaton</h1>
@@ -176,7 +176,7 @@ export default {
             projectweek: [
                 {
                     id: 1,
-                    type: "projectweek",
+                    type: "seminarie",
                     title: { name: "PXL Research Project", href: "#" },
                     description:
                         "Tijdens deze projectweek hebben wij informatie gekregen over ons Research Project en hebben wij een aantal workshops en POP-sessies gedaan om een band op te wekken met het team.",
@@ -187,7 +187,7 @@ export default {
             hackatons: [
                 {
                     id: 1,
-                    type: "hackathon",
+                    type: "seminarie",
                     title: { name: "Cegeka & Innovaid Pitch Please Hackaton", href: "#" },
                     description:
                         "Tijdens deze hackathon, georganiseerd door Cegeka en Innovaid, koos ons team ervoor om een AI-gedreven platform te ontwikkelen dat patiënten helpt het beste ziekenhuis te vinden voor knieoperaties.",
