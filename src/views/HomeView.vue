@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div id="particles-js">
     <h1 class="big-gradient">ITALENT</h1>
+    <h2 class="small-gradient text-center">Surpass Boundaries, Elevate Skills, Propel Forward</h2>
+
   </div>
 </template>
 
@@ -16,20 +18,32 @@ export default {
 
 <style scoped>
 h1.big-gradient {
-  font-size: 3rem;
-  /* Adjust the font size as needed */
-  background: linear-gradient(to right,
-      #2f32df, #a60cad);
-  /* Replace with your desired gradient colors */
+  font-size: 5rem;
+  /* Increase font size for emphasis */
+  background: -webkit-linear-gradient(45deg, #2f32df, #a60cad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  /* Add this line to center the title */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Add these lines to center the title vertically */
-  height: 75dvh;
-  margin: 0;
+  margin-top: 20vh;
+  /* Center vertically somewhat */
+  transition: all 0.5s ease-in-out;
+  /* Smooth transition for effects */
+}
+
+/* Subtle animation to add elegance */
+@keyframes fadeInSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1.big-gradient {
+  animation: fadeInSlideDown 1s ease-out forwards;
 }
 </style>
