@@ -9,6 +9,15 @@
         <h1 class="font-bold pb-10 pt-10">Persoonlijke ontwikkeling</h1>
         <Timeline :activities="persoonlijkeOntwikkeling" />
 
+
+        <h1 class="font-bold pb-10 pt-10">Porjectweek</h1>
+        <Timeline :activities="projectweek" />
+
+        <h1 class="font-bold pb-10 pt-10">Hackaton</h1>
+        <Timeline :activities="hackatons" />
+
+
+
         <h1 class="font-bold pb-10 pt-10">Persoonlijke ontwikkeling (Extra)</h1>
         <Timeline :activities="extraPOP" />
     </div>
@@ -16,6 +25,7 @@
 
 <script>
 import Timeline from "@/components/Timeline.vue";
+import webshopTemplateImage from "@/assets/preview-webshop.png";
 export default {
     name: "OverviewActivities",
     components: {
@@ -150,7 +160,7 @@ export default {
                     location: "Daelstraat 22, 3668 Niel-Bij-As",
                     date: "10/02/2024 - 19/03/2024",
                     dateToSort: new Date("2024-02-10"),
-                    evidence: [
+                    links: [
                         {
                             type: "GitHub Repository",
                             link: "https://github.com/JarneStaalPXL/webshop-template-clothing-and-more",
@@ -160,9 +170,32 @@ export default {
                             link: "https://webshop-template-clothing-and-more.netlify.app/",
                         },
                     ],
-                    imageUrl: "../../../../assets/preview-webshop.png",
+                    imageUrl: webshopTemplateImage,
                 },
             ],
+            projectweek: [
+                {
+                    id: 1,
+                    type: "projectweek",
+                    title: { name: "PXL Research Project", href: "#" },
+                    description:
+                        "Tijdens deze projectweek hebben wij informatie gekregen over ons Research Project en hebben wij een aantal workshops en POP-sessies gedaan om een band op te wekken met het team.",
+                    date: "13/02/2023 - 17/02/2023 | Hogeschool PXL, Elfde Liniestraat 24",
+                    dateToSort: new Date("2023-02-13"),
+                }
+            ],
+            hackatons: [
+                {
+                    id: 1,
+                    type: "hackathon",
+                    title: { name: "Cegeka & Innovaid Pitch Please Hackaton", href: "#" },
+                    description:
+                        "Tijdens deze hackathon, georganiseerd door Cegeka en Innovaid, koos ons team ervoor om een AI-gedreven platform te ontwikkelen dat patiënten helpt het beste ziekenhuis te vinden voor knieoperaties.",
+                    date: "1/12/2023, 16:00 - 23:59 | Corda Campus 6",
+                    dateToSort: new Date("2023-12-01T16:00:00"),
+                }
+
+            ]
         };
     },
 };

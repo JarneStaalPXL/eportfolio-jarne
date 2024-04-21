@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {
-    --primary-color: #a60cad;
+  --primary-color: #a60cad;
 }
 
-
 .primaryTextColor {
-    color: var(--primary-color);
+  --tw-text-opacity: 1;
+  color: var(--primary-color) !important;
 }

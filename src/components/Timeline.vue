@@ -19,8 +19,8 @@
                             <div class="min-w-0 flex-1">
                                 <div>
                                     <div class="text-sm">
-                                        <a :href="activityItem.title.href" class="font-medium text-gray-900">{{
-                activityItem.title.name }}</a>
+                                        <span class="font-medium text-purple-800">{{
+                activityItem.title.name }}</span>
                                     </div>
                                     <p class="mt-0.5 text-sm text-gray-500">{{ activityItem.date }}</p>
                                 </div>
@@ -41,15 +41,29 @@
                             <div class="min-w-0 flex-1">
                                 <div>
                                     <div class="text-sm">
-                                        <a :href="activityItem.title.href" class="font-medium text-gray-900">{{
-                activityItem.title.name }}</a>
+                                        <span class="font-medium text-purple-800">{{
+                activityItem.title.name }}</span>
                                     </div>
                                     <p class="mt-0.5 text-sm text-gray-500">{{ activityItem.date }}</p>
                                 </div>
                                 <div class="mt-2 text-sm text-gray-700">
                                     <p>{{ activityItem.description }}</p>
                                 </div>
-                                <img :src="activityItem.imageUrl">
+
+                                <div>
+                                    <p class="font-bold mt-5 mb-3">Links</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <a v-for="link in activityItem.links" :key="link.id" :href="link.link"
+                                            target="_blank"
+                                            class="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-full text-purple-800 bg-purple-100 hover:bg-purple-200">
+                                            {{ link.type }}
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <a :href="activityItem.links[1]" target="_blank">
+                                    <img class="mt-5" :src="activityItem.imageUrl">
+                                </a>
                             </div>
 
                         </template>
@@ -81,3 +95,16 @@ export default {
     // No need for the 'data' function that defines 'activity' anymore
 }
 </script>
+
+<style scoped>
+/* Add styles here */
+
+
+a:hover {
+    color: #18397f;
+}
+
+.primaryTextColor {
+    color: var(--primary-color) !important;
+}
+</style>
