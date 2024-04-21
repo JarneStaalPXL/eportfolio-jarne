@@ -7,7 +7,10 @@
 <script>
 export default {
   name: 'HomeView',
-  components: {}
+  components: {},
+  mounted() {
+    this.$store.commit("setCurrentRouteName", "Home");
+  },
 }
 </script>
 

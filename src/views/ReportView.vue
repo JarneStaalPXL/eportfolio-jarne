@@ -20,9 +20,9 @@ export default {
             pageNum: null,
         };
     },
-    methods: {
-
-    }
+    mounted() {
+        this.$store.commit("setCurrentRouteName", "Rapporten");
+    },
 };
 </script>
 

@@ -198,5 +198,8 @@ export default {
             ]
         };
     },
+    mounted() {
+        this.$store.commit("setCurrentRouteName", "Overzicht Activiteiten");
+    },
 };
 </script>

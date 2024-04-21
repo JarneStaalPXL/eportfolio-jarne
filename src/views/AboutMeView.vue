@@ -73,6 +73,9 @@
 export default {
     name: "AboutMeView",
     components: {},
+    mounted() {
+        this.$store.commit("setCurrentRouteName", "Over mij");
+    },
 };
 </script>
 

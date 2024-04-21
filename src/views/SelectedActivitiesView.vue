@@ -19,7 +19,9 @@ export default {
         SelectedActivity2,
         SelectedActivity3
     },
-
+    mounted() {
+        this.$store.commit("setCurrentRouteName", "Selectie Activiteiten");
+    },
 };
 </script>
 
