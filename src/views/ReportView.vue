@@ -9,11 +9,10 @@
 
 <script>
 import pdf from "@/assets/TH-future-project.pdf";
-import { VuePDF, usePDF } from '@tato30/vue-pdf'
+
 export default {
     name: "ReportView",
     components: {
-        VuePDF
     },
     data() {
         return {
