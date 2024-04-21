@@ -108,14 +108,16 @@
         <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
 
         <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-          <form class="relative flex flex-1" action="#" method="GET">
+          <form class="relative flex flex-1 " action="#" method="GET" style="visibility: hidden;">
             <label for="search-field" class="sr-only">Search</label>
-            <MagnifyingGlassIcon class="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400"
-              aria-hidden="true" />
+            <svg class="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400" aria-hidden="true">
+              <!-- Your SVG path for MagnifyingGlassIcon goes here -->
+            </svg>
             <input id="search-field"
               class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
-              placeholder="Search..." type="search" name="search" />
+              placeholder="Search..." type="search" name="search" @input="handleSearch" />
           </form>
+
           <div class="flex items-center gap-x-2">
             <!-- Profile dropdown -->
             <span class="sr-only">Open user menu</span>
@@ -130,15 +132,14 @@
 
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
-          <router-view></router-view>
+          <router-view id="content"></router-view>
         </div>
       </main>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script>
 import {
   Dialog,
   DialogPanel,
@@ -148,7 +149,7 @@ import {
   MenuItems,
   TransitionChild,
   TransitionRoot,
-} from '@headlessui/vue'
+} from '@headlessui/vue';
 import {
   Bars3Icon,
   BellIcon,
@@ -160,19 +161,56 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
-} from '@heroicons/vue/24/outline'
-import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+} from '@heroicons/vue/24/outline';
+import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
+import { useRoute } from 'vue-router';
 
-const navigation = [
-  { name: 'Home', href: '/', icon: HomeIcon, current: true },
-  { name: 'Over mij', href: '/over-mij', icon: UsersIcon, current: false },
-  { name: 'Overzicht Activiteiten', href: '/overzicht-activiteiten', icon: FolderIcon, current: false },
-  { name: 'Selectie Activiteiten', href: '/selectie-activiteiten', icon: CalendarIcon, current: false },
-  { name: 'Eindreflectie', href: '/eindreflectie', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Rapporten', href: '/rapporten', icon: ChartPieIcon, current: false },
-]
+export default {
+  name: 'YourComponentName',
+  components: {
+    Dialog,
+    DialogPanel,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    TransitionChild,
+    TransitionRoot,
+    Bars3Icon,
+    BellIcon,
+    CalendarIcon,
+    ChartPieIcon,
+    Cog6ToothIcon,
+    DocumentDuplicateIcon,
+    FolderIcon,
+    HomeIcon,
+    UsersIcon,
+    XMarkIcon,
+    ChevronDownIcon,
+    MagnifyingGlassIcon
+  },
+  data() {
+    return {
+      sidebarOpen: false,
+    };
+  },
+  computed: {
+    navigation() {
+      const route = useRoute();
+      return [
+        { name: 'Home', href: '/', icon: HomeIcon, current: this.$route.path === '/' },
+        { name: 'Over mij', href: '/over-mij', icon: UsersIcon, current: this.$route.path === '/over-mij' },
+        { name: 'Overzicht Activiteiten', href: '/overzicht-activiteiten', icon: FolderIcon, current: this.$route.path === '/overzicht-activiteiten' },
+        { name: 'Selectie Activiteiten', href: '/selectie-activiteiten', icon: CalendarIcon, current: this.$route.path === '/selectie-activiteiten' },
+        { name: 'Eindreflectie', href: '/eindreflectie', icon: DocumentDuplicateIcon, current: this.$route.path === '/eindreflectie' },
+        { name: 'Rapporten', href: '/rapporten', icon: ChartPieIcon, current: this.$route.path === '/rapporten' },
+      ];
+    }
+  },
+  methods: {
 
-const sidebarOpen = ref(false)
+  }
+}
 </script>
 
 <style scoped>
